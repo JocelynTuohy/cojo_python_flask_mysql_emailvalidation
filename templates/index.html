@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title></title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <form action="/check" method="POST">
+        <label for="email_field">Email Address:</label>
+        <input type="text" id="email_field" name="email">
+        <input type="submit" value="Submit">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{message}}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </form>
+    </div>
+  </body>
+</html>

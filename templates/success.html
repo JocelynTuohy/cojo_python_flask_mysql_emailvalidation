@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title></title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <h4>The email address you entered ({{ email }}) is a VALID email address!
+        Thank you!</h4>
+      <form action="/delete" method="POST">
+        <h5>Email Addresses Entered:</h5>
+        <ul>
+        <!--{% print emails %}-->
+        {% for each in emails %}
+          <li>
+            <button type="submit" name='which_email' value={{each['id']}}>Delete</button>
+            {{ each['email'] }} (added {{ each['created_at'] }})
+          </li>
+        {% endfor %}
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>
